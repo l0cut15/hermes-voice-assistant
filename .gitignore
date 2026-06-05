@@ -1,0 +1,4 @@
+data/secrets.json
+.pio/
+.claude/
+.vscode/

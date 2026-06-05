@@ -1,0 +1,19 @@
+services:
+  whisper-server:
+    build: .
+    container_name: whisper-server
+    ports:
+      - "7124:8080"
+    volumes:
+      - ./models:/app/models
+    restart: unless-stopped
+
+# First-time setup — download the model before starting:
+#   mkdir -p servers/whisper-stt/models
+#   wget -O servers/whisper-stt/models/ggml-small.en.bin \
+#     https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin
+#
+# Then start:
+#   cd servers/whisper-stt && docker compose up -d
+#
+# Endpoint: POST http://<host>:7124/inference  (multipart/form-data, file=audio.wav)
