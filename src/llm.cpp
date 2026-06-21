@@ -45,7 +45,7 @@ bool llm_complete(const char* transcript, char* response, size_t response_size) 
 
     HTTPClient http;
     http.begin(url);
-    http.setTimeout(30000);
+    http.setTimeout(60000);
     http.addHeader("Content-Type", "application/json");
     http.addHeader("Authorization", auth_header);
 

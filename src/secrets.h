@@ -11,6 +11,7 @@ struct Secrets {
     char hermes_key[200];   // API_SERVER_KEY bearer token
     char tts_host[64];
     char tts_port[8];
+    char tts_voice[32];
 };
 
 extern Secrets g_secrets;

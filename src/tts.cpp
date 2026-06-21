@@ -21,7 +21,7 @@ bool tts_speak(const char* text) {
 
     JsonDocument req;
     req["model"]           = "kokoro";
-    req["voice"]           = "af_sky";
+    req["voice"]           = g_secrets.tts_voice[0] ? g_secrets.tts_voice : "af_heart";
     req["input"]           = text;
     req["response_format"] = "pcm";  // raw 16-bit signed PCM @ 24 kHz
     String body;

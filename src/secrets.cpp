@@ -33,10 +33,12 @@ bool secrets_load() {
     strlcpy(g_secrets.hermes_key,  doc["hermes_key"]  | "", sizeof(g_secrets.hermes_key));
     strlcpy(g_secrets.tts_host,    doc["tts_host"]    | "", sizeof(g_secrets.tts_host));
     strlcpy(g_secrets.tts_port,    doc["tts_port"]    | "7235", sizeof(g_secrets.tts_port));
-    Serial.printf("Secrets: loaded (ssid=%s stt=%s:%s hermes=%s:%s tts=%s:%s)\n",
+    strlcpy(g_secrets.tts_voice,   doc["tts_voice"]   | "af_heart", sizeof(g_secrets.tts_voice));
+    Serial.printf("Secrets: loaded (ssid=%s stt=%s:%s hermes=%s:%s tts=%s:%s voice=%s)\n",
                   g_secrets.wifi_ssid,
                   g_secrets.stt_host, g_secrets.stt_port,
                   g_secrets.hermes_host, g_secrets.hermes_port,
-                  g_secrets.tts_host, g_secrets.tts_port);
+                  g_secrets.tts_host, g_secrets.tts_port,
+                  g_secrets.tts_voice);
     return true;
 }
