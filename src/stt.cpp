@@ -66,7 +66,7 @@ bool stt_transcribe(const uint8_t* pcm_buf, size_t pcm_len,
     memcpy(p, postamble, post_len);
 
     char url[128];
-    snprintf(url, sizeof(url), "http://%s:%s/inference",
+    snprintf(url, sizeof(url), "http://%s:%s/v1/audio/transcriptions",
              g_secrets.stt_host, g_secrets.stt_port);
     Serial.printf("STT: POST %u bytes to %s\n", body_size, url);
 
